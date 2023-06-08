@@ -1,0 +1,10 @@
+{
+    "helium-dnd5e-sheet": {
+        "sheets": {
+            "character": "Helium 5e-Charakterblatt",
+            "group": "Helium 5e Partyblatt",
+            "npc": "Helium 5e NPC-Blatt",
+            "vehicle": "Helium 5e Fahrzeugdatenblatt"
+        }
+    }
+}

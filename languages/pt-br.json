@@ -1,0 +1,10 @@
+{
+    "helium-dnd5e-sheet": {
+        "sheets": {
+            "character": "Ficha de Personagem Hélio 5e",
+            "group": "Folha de Festa Hélio 5e",
+            "npc": "Folha de Hélio 5e NPC",
+            "vehicle": "Folha de Veículo Hélio 5e"
+        }
+    }
+}

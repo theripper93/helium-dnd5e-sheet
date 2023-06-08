@@ -1,0 +1,10 @@
+{
+    "helium-dnd5e-sheet": {
+        "sheets": {
+            "character": "ヘリウム 5e キャラクターシート",
+            "group": "ヘリウム 5e パーティーシート",
+            "npc": "ヘリウム 5e NPC シート",
+            "vehicle": "ヘリウム 5e 車両シート"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "helium-dnd5e-sheet": {
+        "sheets": {
+            "character": "Лист персонажа Helium 5e",
+            "group": "Партийный лист Helium 5e",
+            "npc": "Лист NPC Helium 5e",
+            "vehicle": "Лист автомобиля Helium 5e"
+        }
+    }
+}
