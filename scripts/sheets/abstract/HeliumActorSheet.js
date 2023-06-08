@@ -21,4 +21,20 @@ export class HeliumActorSheet extends ActorSheet {
             classes: [`${MODULE_ID}`, `${MODULE_ID}-sheet`, `${MODULE_ID}-${this.type}-sheet`],
         });
     }
+
+    async getData() {
+        const data = await super.getData();
+        const items = Array.from(this.actor.items);
+        const actorActions = {
+            action: items.filter((item) => item.system.activation.type === "action"),
+            bonus: items.filter((item) => item.system.activation.type === "bonus"),
+            reaction: items.filter((item) => item.system.activation.type === "reaction"),
+            special: items.filter((item) => item.system.activation.type === "special"),
+            legendary: items.filter((item) => item.system.activation.type === "legendary"),
+            lair: items.filter((item) => item.system.activation.type === "lair"),
+            mythic: items.filter((item) => item.system.activation.type === "mythic"),
+        }
+        data.actorActions = actorActions;
+        return data;
+    }
 }
