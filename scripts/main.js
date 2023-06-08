@@ -2,7 +2,7 @@ import { MODULE_ID, SHEETS, TEMPLATES } from "./consts.js";
 import {l} from "./helpers.js";
 import {registerSettings} from "./settings.js";
 
-Hooks.on("init", () => {
+Hooks.on("ready", () => {
 
     // Register sheet application classes
     SHEETS.forEach(sheet => {
