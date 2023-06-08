@@ -1,0 +1,1 @@
+export const MODULE_ID = 'helium-dnd5e-sheet';
