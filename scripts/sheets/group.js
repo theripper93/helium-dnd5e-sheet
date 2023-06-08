@@ -1,4 +1,8 @@
-export class HeliumGroupSheet extends ActorSheet{
-    static get type(){return "group";}
-    static get documentClass(){ return Actor;}
+import { HeliumActorSheet } from "./abstract/HeliumActorSheet.js";
+import { MODULE_ID } from "../consts.js";
+
+export class HeliumGroupSheet extends HeliumActorSheet {
+    static get type() {
+        return "group";
+    }
 }

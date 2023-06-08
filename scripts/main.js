@@ -1,4 +1,4 @@
-import { SHEETS } from "./consts.js";
+import { MODULE_ID, SHEETS, TEMPLATES } from "./consts.js";
 import { l } from "./helpers.js";
 
 Hooks.on("init", () => {
@@ -8,4 +8,11 @@ Hooks.on("init", () => {
             label: l("sheets." + sheet.type)
         });
     });
+
+    const paths = {};
+    for ( const path of TEMPLATES ) {
+      paths[path] = path;
+      paths[`${MODULE_ID}.${path.split("/").pop().replace(".hbs", "")}`] = path;
+    }
+    loadTemplates(paths);
 });

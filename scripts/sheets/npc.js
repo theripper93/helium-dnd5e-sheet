@@ -1,4 +1,8 @@
-export class HeliumNpcSheet extends ActorSheet{
-    static get type(){return "npc";}
-    static get documentClass(){ return Actor;}
+import { HeliumActorSheet } from "./abstract/HeliumActorSheet.js";
+import { MODULE_ID } from "../consts.js";
+
+export class HeliumNpcSheet extends HeliumActorSheet {
+    static get type() {
+        return "npc";
+    }
 }

@@ -1,4 +1,8 @@
-export class HeliumVehicleSheet extends ActorSheet{
-    static get type(){return "vehicle";}
-    static get documentClass(){ return Actor;}
+import { HeliumActorSheet } from "./abstract/HeliumActorSheet.js";
+import {MODULE_ID} from "../consts.js";
+
+export class HeliumVehicleSheet extends HeliumActorSheet {
+    static get type() {
+        return "vehicle";
+    }
 }
