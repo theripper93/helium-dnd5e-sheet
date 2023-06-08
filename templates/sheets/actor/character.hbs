@@ -7,22 +7,62 @@
 			<div class="character-details">
 				<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img"/>
 				<div class="character-race">
-					<h4>{{ localize 'DND5E.Race' }}</h4>
-					<input type="text" name="actor.system.details.race" value="{{actor.system.details.race}}" placeholder="{{ localize 'DND5E.Race' }}"/>
-					<h4>{{ localize 'DND5E.Background' }}</h4>
-					{{#each actor.itemTypes.background}}
-						{{name}}
-					{{/each}}
+					<div>
+						<h4 style="margin: 0px;">{{ localize 'DND5E.Race' }}</h4>
+						<input type="text" name="actor.system.details.race" value="{{actor.system.details.race}}" placeholder="{{ localize 'DND5E.Race' }}"/>
+						{{#each actor.itemTypes.background}}
+							<div style="height: 26px; display: flex; justify-content: flex-end; align-items: center;">{{name}}</div>
+						{{/each}}
+					</div>
+					<div>
+						<h4 style="margin: 0px;">{{ localize 'DND5E.ClassLevels' }}</h4>
+						{{#each actor.itemTypes.class}}
+							<div style="height: 26px; display: flex; justify-content: flex-end; align-items: center;">{{name}} ({{system.levels}})</div>
+						{{/each}}
+					</div>
 				</div>
 			</div>
 		</div>
-		
 
 		<!-- Actor Buttons -->
+		<div class="actor-buttons">
+			<button class="actor-button" data-action="roll-initiative" data-tooltip="{{ localize "DND5E.Exhaustion" }}">
+				<i class="fa-light fa-face-exhaling"></i>
+			</button>
+			<button class="actor-button" data-action="roll-initiative" data-tooltip="{{ localize "DND5E.Inspiration" }}">
+				<i class="fa-light fa-dice-d20"></i>
+			</button>
+			<button class="actor-button" data-action="roll-initiative" data-tooltip="{{ localize "DND5E.Rest" }}">
+				<i class="fa-light fa-snooze"></i>
+			</button>
+		</div>
 
 		<!-- Actor Stats -->
 
 		<!-- Actor Attributes -->
+		{{!-- Ability Scores --}}
+        <ul class="ability-scores">
+        {{#each actor.system.abilities as |ability id|}}
+            <li class="ability {{#if ability.proficient}}proficient{{/if}}" data-ability="{{id}}">
+                <h4 class="ability-name box-title rollable">{{id}}</h4>
+                <input type="text" name="system.abilities.{{id}}.value" value="{{ability.value}}" class="ability-score" placeholder="10" data-dtype="Number">
+                <div class="ability-modifiers flexrow">
+                    <input type="hidden" name="system.abilities.{{id}}.proficient" value="{{ability.baseProf}}" data-dtype="Number"/>
+                    <a class="proficiency-toggle ability-proficiency" data-tooltip="DND5E.Proficiency">
+                        {{{ability.icon}}}
+                    </a>
+					<div class="ability-buttons">
+						<button class="ability-mod" data-tooltip="DND5E.Modifier">
+							{{numberFormat ability.mod decimals=0 sign=true}}
+						</button>
+						<button class="ability-save" data-tooltip="DND5E.SavingThrow">
+							{{numberFormat ability.save decimals=0 sign=true}}
+						</button>
+					</div>
+                </div>
+            </li>
+        {{/each}}
+        </ul>
 
 		<!-- Actor Skills -->
 	</header>
