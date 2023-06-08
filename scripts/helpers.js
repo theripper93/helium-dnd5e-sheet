@@ -25,3 +25,7 @@ export function saturate(color, amount = 0.5) {
     hsv[1] = Math.min(1, hsv[1] + amount);
     return Color.fromHSV(...hsv).toString();
 }
+
+export function setCSSVar(name, value) {
+    document.documentElement.style.setProperty(name, value);
+}
