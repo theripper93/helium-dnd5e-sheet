@@ -1,5 +1,6 @@
 import { MODULE_ID, SHEETS, TEMPLATES } from "./consts.js";
-import { l } from "./helpers.js";
+import {l} from "./helpers.js";
+import {registerSettings} from "./settings.js";
 
 Hooks.on("init", () => {
 
@@ -18,4 +19,7 @@ Hooks.on("init", () => {
       paths[`${MODULE_ID}.${path.split("/").pop().replace(".hbs", "")}`] = path;
     }
     loadTemplates(paths);
+
+    // Register settings
+    registerSettings();
 });
