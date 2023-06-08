@@ -1,8 +1,33 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-	<header>
+	<!-- Core Stats for the Actor -->
+	<header class="sheet-header">
+		<!-- Actor Name, Image and Details -->
+		<div class="header-details">
+			<input type="text" name="name" value="{{actor.name}}" placeholder="{{ localize "DND5E.Name" }}"/>
+			<div class="character-details">
+				<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img"/>
+				<div class="character-race">
+					<h4>{{ localize 'DND5E.Race' }}</h4>
+					<input type="text" name="actor.system.details.race" value="{{actor.system.details.race}}" placeholder="{{ localize 'DND5E.Race' }}"/>
+					<h4>{{ localize 'DND5E.Background' }}</h4>
+					{{#each actor.itemTypes.background}}
+						{{name}}
+					{{/each}}
+				</div>
+			</div>
+		</div>
+		
 
+		<!-- Actor Buttons -->
+
+		<!-- Actor Stats -->
+
+		<!-- Actor Attributes -->
+
+		<!-- Actor Skills -->
 	</header>
 	<main>
+		{{> "helium-dnd5e-sheet.actor-actions" actorActions=actorActions}}
 		{{> "helium-dnd5e-sheet.actor-inventory"}}
 		{{> "helium-dnd5e-sheet.actor-traits"}}
 		{{> "helium-dnd5e-sheet.actor-spellbook"}}

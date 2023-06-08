@@ -1,11 +1,27 @@
 :root{
     --helium-cs-core-width: 300px;
+
+    --helium-cs-background: rgba(14, 30, 37, 0.32);
+    --helium-cs-forground: rgba(255, 255, 255, 0.8);
+
+    --helium-cs-player-color: #62b3df;
 }
 
 .helium-dnd5e-sheet {
     .window-content {
         background-image: none;
+        background-color: var(--helium-cs-background);
+        backdrop-filter: blur(10px);
+        color: var(--helium-cs-forground);
         padding: 0px;
+    }
+
+    /* Fuck Foundry Styles */
+    input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"], input[type="search"] {
+        background: transparent;
+        border-radius: 0;
+        border-width: 0;
+        color: var(--helium-cs-forground);
     }
     
     form {
@@ -14,9 +30,38 @@
         flex-direction: row;
 
         /* Core Player Abilities */
-        header {
+        header.sheet-header {
             box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
             flex: 0 1 var(--helium-cs-core-width);
+            padding: 0.25rem 1.5rem;
+
+            .header-details {
+
+                > character-details  {
+                    display: flex;
+                }
+
+                input[name="name"] {
+                    color: var(--helium-cs-player-color);
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                    height: auto;
+                    margin-bottom: 0.25rem;
+                    padding: 0.5rem 0rem;
+                    text-align: right;
+                }
+
+                img.profile {
+                    aspect-ratio: 1;
+                    border-radius: 50%;
+                    border: 1px solid var(--helium-cs-player-color);
+                    height: 125px;
+                }
+
+                .character-race {
+                    text-align: right;
+                }
+            }
         }
     
         main {

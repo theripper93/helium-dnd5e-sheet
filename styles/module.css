@@ -1,10 +1,26 @@
 :root {
   --helium-cs-core-width: 300px;
+  --helium-cs-background: rgba(14, 30, 37, 0.32);
+  --helium-cs-forground: rgba(255, 255, 255, 0.8);
+  --helium-cs-player-color: #62b3df;
 }
 
+.helium-dnd5e-sheet {
+  /* Fuck Foundry Styles */
+}
 .helium-dnd5e-sheet .window-content {
   background-image: none;
+  background-color: var(--helium-cs-background);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: var(--helium-cs-forground);
   padding: 0px;
+}
+.helium-dnd5e-sheet input[type=text], .helium-dnd5e-sheet input[type=number], .helium-dnd5e-sheet input[type=password], .helium-dnd5e-sheet input[type=date], .helium-dnd5e-sheet input[type=time], .helium-dnd5e-sheet input[type=search] {
+  background: transparent;
+  border-radius: 0;
+  border-width: 0;
+  color: var(--helium-cs-forground);
 }
 .helium-dnd5e-sheet form {
   /* Setup Layout */
@@ -12,9 +28,31 @@
   flex-direction: row;
   /* Core Player Abilities */
 }
-.helium-dnd5e-sheet form header {
+.helium-dnd5e-sheet form header.sheet-header {
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   flex: 0 1 var(--helium-cs-core-width);
+  padding: 0.25rem 1.5rem;
+}
+.helium-dnd5e-sheet form header.sheet-header .header-details > div {
+  display: flex;
+}
+.helium-dnd5e-sheet form header.sheet-header .header-details input[name=name] {
+  color: var(--helium-cs-player-color);
+  font-size: 1.25rem;
+  font-weight: 600;
+  height: auto;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem 0rem;
+  text-align: right;
+}
+.helium-dnd5e-sheet form header.sheet-header .header-details img.profile {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--helium-cs-player-color);
+  height: 125px;
+}
+.helium-dnd5e-sheet form header.sheet-header .header-details .character-details {
+  text-align: right;
 }
 .helium-dnd5e-sheet form main {
   /*background-color: red;*/

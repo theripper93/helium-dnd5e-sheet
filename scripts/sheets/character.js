@@ -16,7 +16,7 @@ export class HeliumCharacterSheet extends HeliumActorSheet {
 
     async getData(options) {
         const context = await super.getData(options);
-
+        console.log(context);
         return mergeObject(context, { });
     }
 
