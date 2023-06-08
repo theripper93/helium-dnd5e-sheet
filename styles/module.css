@@ -11,8 +11,7 @@
 .helium-dnd5e-sheet .window-content {
   background-image: none;
   background-color: var(--helium-cs-background);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   color: var(--helium-cs-forground);
   padding: 0px;
 }
@@ -33,7 +32,7 @@
   flex: 0 1 var(--helium-cs-core-width);
   padding: 0.25rem 1.5rem;
 }
-.helium-dnd5e-sheet form header.sheet-header .header-details > div {
+.helium-dnd5e-sheet form header.sheet-header .header-details > character-details {
   display: flex;
 }
 .helium-dnd5e-sheet form header.sheet-header .header-details input[name=name] {
@@ -51,10 +50,15 @@
   border: 1px solid var(--helium-cs-player-color);
   height: 125px;
 }
-.helium-dnd5e-sheet form header.sheet-header .header-details .character-details {
+.helium-dnd5e-sheet form header.sheet-header .header-details .character-race {
   text-align: right;
 }
 .helium-dnd5e-sheet form main {
   /*background-color: red;*/
   flex: 1;
+}
+.helium-dnd5e-sheet form main .action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.3rem;
 }/*# sourceMappingURL=module.css.map */

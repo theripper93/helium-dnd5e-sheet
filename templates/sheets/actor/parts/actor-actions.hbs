@@ -1,1 +1,19 @@
-<div></div>
+<div>
+    {{#each actorActions}}
+        <h2>{{label}}</h2>
+        <div class="action-grid">
+            {{#each items}}
+                <div style="background-image: url('{{img}}');">
+                    <div>
+                        <span>{{name}}</span>
+                        <div>
+                            {{#each system.damage.parts}}
+                                {{this.[0]}}
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/each}}
+</div>

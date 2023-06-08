@@ -25,15 +25,14 @@ export class HeliumActorSheet extends ActorSheet {
     async getData() {
         const data = await super.getData();
         const items = Array.from(this.actor.items);
-        const actorActions = {
-            action: items.filter((item) => item?.system?.activation?.type === "action"),
-            bonus: items.filter((item) => item?.system?.activation?.type === "bonus"),
-            reaction: items.filter((item) => item?.system?.activation?.type === "reaction"),
-            special: items.filter((item) => item?.system?.activation?.type === "special"),
-            legendary: items.filter((item) => item?.system?.activation?.type === "legendary"),
-            lair: items.filter((item) => item?.system?.activation?.type === "lair"),
-            mythic: items.filter((item) => item?.system?.activation?.type === "mythic"),
-        }
+        const actorActionsTypes = ["action", "bonus", "reaction", "special", "legendary", "lair", "mythic"]
+        const actorActions = {}
+        actorActionsTypes.forEach((type) => {
+            actorActions[type] = {
+                items: items.filter((item) => item?.system?.activation?.type === type),
+                label: CONFIG.DND5E.abilityActivationTypes[type]
+            }
+        });
         data.actorActions = actorActions;
         return data;
     }
