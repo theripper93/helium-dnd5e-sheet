@@ -4,5 +4,12 @@
     ],
     "cSpell.words": [
         "spellbook"
-    ]
+    ],
+	"liveSassCompile.settings.formats": [
+		{
+			"format": "expanded",
+			"extensionName": ".css",
+			"savePath": "/styles/"
+		}
+	],
 }

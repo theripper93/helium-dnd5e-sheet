@@ -1,0 +1,27 @@
+:root{
+    --helium-cs-core-width: 300px;
+}
+
+.helium-dnd5e-sheet {
+    .window-content {
+        background-image: none;
+        padding: 0px;
+    }
+    
+    form {
+        /* Setup Layout */
+        display: flex;
+        flex-direction: row;
+
+        /* Core Player Abilities */
+        header {
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+            flex: 0 1 var(--helium-cs-core-width);
+        }
+    
+        main {
+            /*background-color: red;*/
+            flex: 1;
+        }
+    }
+}
