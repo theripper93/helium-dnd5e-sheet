@@ -17,4 +17,5 @@ export const TEMPLATES = [
     "modules/helium-dnd5e-sheet/templates/sheets/actor/parts/actor-traits.hbs",
     "modules/helium-dnd5e-sheet/templates/sheets/actor/parts/actor-warnings.hbs",
     "modules/helium-dnd5e-sheet/templates/sheets/actor/parts/actor-actions.hbs",
+    "modules/helium-dnd5e-sheet/templates/sheets/actor/parts/actor-actions-item-card.hbs",
 ]

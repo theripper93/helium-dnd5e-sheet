@@ -28,8 +28,10 @@ export class HeliumActorSheet extends ActorSheet {
         const actorActionsTypes = ["action", "bonus", "reaction", "special", "legendary", "lair", "mythic"]
         const actorActions = {}
         actorActionsTypes.forEach((type) => {
+            const actionItems = items.filter((item) => item?.system?.activation?.type === type)
+            if(!actionItems.length) return;
             actorActions[type] = {
-                items: items.filter((item) => item?.system?.activation?.type === type),
+                items: actionItems,
                 label: CONFIG.DND5E.abilityActivationTypes[type]
             }
         });

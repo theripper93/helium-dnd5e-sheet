@@ -4,14 +4,7 @@
         <div class="action-grid">
             {{#each items}}
                 <div style="background-image: url('{{img}}');">
-                    <div>
-                        <span>{{name}}</span>
-                        <div>
-                            {{#each system.damage.parts}}
-                                {{this.[0]}}
-                            {{/each}}
-                        </div>
-                    </div>
+                    {{> "helium-dnd5e-sheet.actor-actions-item-card" item=this}}
                 </div>
             {{/each}}
         </div>
