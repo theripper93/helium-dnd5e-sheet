@@ -1,8 +1,11 @@
-import { HeliumCharacterSheet } from "./sheets/character.js";
+import { SHEETS } from "./consts.js";
+import { l } from "./helpers.js";
 
 Hooks.on("init", () => {
-    DocumentSheetConfig.registerSheet(Actor, "helium-character", HeliumCharacterSheet, {
-        types: ["character"],
-        label: "Helium 5e Character Sheet",
+    SHEETS.forEach(sheet => {
+        DocumentSheetConfig.registerSheet(sheet.documentClass, "helium-" + sheet.type, sheet, {
+            types: [sheet.type],
+            label: l("sheets." + sheet.type)
+        });
     });
 });

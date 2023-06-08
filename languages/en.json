@@ -1,3 +1,10 @@
 {
-    "MODULE.hello": "hello"
+    "helium-dnd5e-sheet": {
+        "sheets": {
+            "character": "Helium 5e Character Sheet",
+            "npc": "Helium 5e NPC Sheet",
+            "vehicle": "Helium 5e Vehicle Sheet",
+            "group": "Helium 5e Party Sheet"
+        }
+    }
 }
