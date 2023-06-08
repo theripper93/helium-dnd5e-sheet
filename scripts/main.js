@@ -2,6 +2,8 @@ import { MODULE_ID, SHEETS, TEMPLATES } from "./consts.js";
 import { l } from "./helpers.js";
 
 Hooks.on("init", () => {
+
+    // Register sheet application classes
     SHEETS.forEach(sheet => {
         DocumentSheetConfig.registerSheet(sheet.documentClass, "helium-" + sheet.type, sheet, {
             types: [sheet.type],
@@ -9,6 +11,7 @@ Hooks.on("init", () => {
         });
     });
 
+    // Preload templates and partials to improve performance
     const paths = {};
     for ( const path of TEMPLATES ) {
       paths[path] = path;
