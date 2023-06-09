@@ -14,6 +14,20 @@ export class HeliumCharacterSheet extends HeliumActorSheet {
 
     activateListeners(html) {
 		super.activateListeners(html);
-
+        html = html[0] || html;
+        html.querySelectorAll(".ability-buttons .ability-mod").forEach((element) => {
+            element.addEventListener("click", (event) => {
+                event.preventDefault();
+                const abilityId = event.currentTarget.dataset.abilityId;
+                this.actor.rollAbilityTest(abilityId, {event});
+            });
+        });
+        html.querySelectorAll(".ability-buttons .ability-save").forEach((element) => {
+            element.addEventListener("click", (event) => {
+                event.preventDefault();
+                const abilityId = event.currentTarget.dataset.abilityId;
+                this.actor.rollAbilitySave(abilityId, {event});
+            });
+        });
     }
 }
