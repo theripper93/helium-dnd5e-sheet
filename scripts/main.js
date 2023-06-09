@@ -1,10 +1,11 @@
-import { MODULE_ID, SHEETS, TEMPLATES } from "./consts.js";
-import {l} from "./helpers.js";
-import {registerSettings} from "./settings.js";
 
-Hooks.on("ready", () => {
-
+Hooks.on("ready", async () => {
+    const {MODULE_ID, SHEETS, TEMPLATES} = await import("./consts.js");
+    const {l} = await import("./helpers.js");
+    const {registerSettings} = await import("./settings.js");
     // Register sheet application classes
+
+
     SHEETS.forEach(sheet => {
         DocumentSheetConfig.registerSheet(sheet.documentClass, "helium-" + sheet.type, sheet, {
             types: [sheet.type],

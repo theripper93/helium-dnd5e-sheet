@@ -1,6 +1,6 @@
 import { MODULE_ID } from "../../consts.js";
 
-export class HeliumActorSheet extends ActorSheet {
+export class HeliumActorSheet extends game.system.applications.actor.ActorSheet5eCharacter {
     static get type() {
         return "";
     }
@@ -10,6 +10,10 @@ export class HeliumActorSheet extends ActorSheet {
 
     static get template() {
         return `modules/${MODULE_ID}/templates/sheets/actor/${this.type}.hbs`;
+    }
+
+    get template() {
+        return `modules/${MODULE_ID}/templates/sheets/actor/${this.constructor.type}.hbs`;
     }
 
     static get defaultOptions() {
@@ -23,19 +27,20 @@ export class HeliumActorSheet extends ActorSheet {
     }
 
     async getData() {
-        const data = await super.getData();
+        const context = await super.getData();
         const items = Array.from(this.actor.items);
-        const actorActionsTypes = ["action", "bonus", "reaction", "special", "legendary", "lair", "mythic"]
+        const actorActionsTypes = ["action", "bonus", "reaction", "special", "legendary", "lair", "mythic"];
+        const actorItemTypes = ["weapon", "equipment", "feature", "spell"]
         const actorActions = {}
         actorActionsTypes.forEach((type) => {
-            const actionItems = items.filter((item) => item?.system?.activation?.type === type)
+            const actionItems = items.filter((item) => item?.system?.activation?.type === type && actorItemTypes.includes(item.type));
             if(!actionItems.length) return;
             actorActions[type] = {
                 items: actionItems,
                 label: CONFIG.DND5E.abilityActivationTypes[type]
             }
         });
-        data.actorActions = actorActions;
-        return data;
+        context.actorActions = actorActions;
+        return context;
     }
 }
