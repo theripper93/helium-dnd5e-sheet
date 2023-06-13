@@ -72,6 +72,18 @@
 		</ul>
 
 		<!-- Actor Skills -->
+		<ul class="skills-list">
+            {{#each config.skills as |obj s|}}
+            {{#with (lookup ../skills s) as |skill|}}
+                <li class="proficiency-row skill flexrow {{#if skill.value}}proficient{{/if}}"
+                    data-property="skills" data-key="{{s}}">
+                    <div class="skill-name-controls">
+                      <h4 class="skill-name rollable">{{skill.label}}</h4>
+                    </div>
+                </li>
+            {{/with}}
+            {{/each}}
+        </ul>
 	</header>
 	<main>
 		<nav class="sheet-navigation tabs" data-group="primary">
