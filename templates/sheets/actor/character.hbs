@@ -5,6 +5,7 @@
 		<div class="header-details">
 			<input type="text" name="name" value="{{actor.name}}" placeholder="{{ localize " DND5E.Name" }}" />
 			<div class="character-details">
+				
 				<img class="profile" src="{{actor.img}}" title="{{actor.name}}" data-edit="img" />
 				<div class="character-race">
 					<div>
@@ -78,7 +79,12 @@
                 <li class="proficiency-row skill flexrow {{#if skill.value}}proficient{{/if}}"
                     data-property="skills" data-key="{{s}}">
                     <div class="skill-name-controls">
-                      <h4 class="skill-name rollable">{{skill.label}}</h4>
+                      <h4 class="skill-name rollable"> {{skill.label}}</h4>
+					  <div class="roll-type-overlay">
+						<div class="dis">-</div>
+						<div class="sta"></div>
+						<div class="adv">+</div>
+					  </div>
                     </div>
                 </li>
             {{/with}}

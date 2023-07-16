@@ -1,8 +1,10 @@
 :root {
-  --helium-cs-core-width: 300px;
+  --helium-cs-core-width: 350px;
   --helium-cs-background: rgba(14, 30, 37, 0.32);
+  --helium-cs-background-2: rgba(225, 225, 225, 0.3);
   --helium-cs-forground: rgba(255, 255, 255, 0.8);
-  --helium-cs-player-color: #62b3df;
+  --helium-cs-color-hover: #62b3df;
+  --helium-cs-player-color: #577687;
 }
 
 .helium-dnd5e-sheet {
@@ -11,12 +13,16 @@
 .helium-dnd5e-sheet .window-content {
   background-image: none;
   background-color: var(--helium-cs-background);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   color: var(--helium-cs-forground);
   padding: 0px;
 }
-.helium-dnd5e-sheet input[type=text], .helium-dnd5e-sheet input[type=number], .helium-dnd5e-sheet input[type=password], .helium-dnd5e-sheet input[type=date], .helium-dnd5e-sheet input[type=time], .helium-dnd5e-sheet input[type=search] {
+.helium-dnd5e-sheet input[type=text],
+.helium-dnd5e-sheet input[type=number],
+.helium-dnd5e-sheet input[type=password],
+.helium-dnd5e-sheet input[type=date],
+.helium-dnd5e-sheet input[type=time],
+.helium-dnd5e-sheet input[type=search] {
   background: transparent;
   border-radius: 0;
   border-width: 0;
@@ -45,7 +51,8 @@
   padding: 0.5rem 0rem;
   text-align: right;
 }
-.helium-dnd5e-sheet form header.sheet-header .header-details img.profile {
+.helium-dnd5e-sheet form header.sheet-header .header-details img.profile,
+.helium-dnd5e-sheet form header.sheet-header .header-details video.profile {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid var(--helium-cs-player-color);
@@ -92,7 +99,7 @@
 }
 .helium-dnd5e-sheet form header.sheet-header .ability-scores li.ability {
   align-items: center;
-  border: 2px solid rgba(225, 225, 225, 0.3);
+  border: 2px solid var(--helium-cs-background-2);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -101,7 +108,7 @@
   margin-bottom: 1rem;
 }
 .helium-dnd5e-sheet form header.sheet-header .ability-scores li.ability h4.ability-name {
-  background-color: rgba(225, 225, 225, 0.3);
+  background-color: var(--helium-cs-background-2);
   font-size: var(--font-size-12);
   font-weight: 600;
   padding: 0.25rem;
@@ -142,6 +149,62 @@
 }
 .helium-dnd5e-sheet form header.sheet-header .ability-scores li.ability .ability-buttons button i {
   margin: 0px;
+}
+.helium-dnd5e-sheet form header.sheet-header .skills-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0;
+  padding: 0;
+  background-color: var(--helium-cs-background-2);
+  border-radius: 5px;
+  padding: 0.3rem;
+  gap: 0.3rem;
+  margin-top: 1rem;
+}
+.helium-dnd5e-sheet form header.sheet-header .skills-list .skill {
+  background-color: var(--helium-cs-player-color);
+  padding: 0.3rem 0.1rem;
+  border-radius: 3px;
+}
+.helium-dnd5e-sheet form header.sheet-header .skills-list .skill:hover {
+  background-color: var(--helium-cs-color-hover);
+  cursor: pointer;
+}
+.helium-dnd5e-sheet form header.sheet-header .skills-list .skill .skill-name-controls {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  text-transform: uppercase;
+  position: relative;
+}
+.helium-dnd5e-sheet form header.sheet-header .skills-list .skill .skill-name-controls .roll-type-overlay {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  border-radius: 3px;
+}
+.helium-dnd5e-sheet form header.sheet-header .skills-list .skill .skill-name-controls .roll-type-overlay:hover {
+  opacity: 0.5;
+}
+.helium-dnd5e-sheet form header.sheet-header .skills-list .skill .skill-name-controls .roll-type-overlay .adv {
+  background-color: lime;
+}
+.helium-dnd5e-sheet form header.sheet-header .skills-list .skill .skill-name-controls .roll-type-overlay .sta {
+  background-color: grey;
+}
+.helium-dnd5e-sheet form header.sheet-header .skills-list .skill .skill-name-controls .roll-type-overlay .dis {
+  background-color: red;
+}
+.helium-dnd5e-sheet form header.sheet-header .skills-list .skill .skill-name-controls h4 {
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+  white-space: nowrap;
 }
 .helium-dnd5e-sheet form main {
   /*background-color: red;*/
